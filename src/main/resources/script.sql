@@ -25,3 +25,21 @@ insert into movies.movies (Title, Runtime, Genre, IMDB_Score, Rating) Values ('G
 insert into movies.movies (Title, Runtime, Genre, IMDB_Score, Rating) Values ('Teenage Mutant Ninja Turtles', '93', 'Comedy', '6.7', 'PG');
 
 insert into movies.movies (Title, Runtime, Genre, IMDB_Score, Rating) Values ('The Dark Knight Rises', '93', 'Comedy', '6.7', 'PG');
+
+select * from movies where genre = 'Sci-Fi';
+
+select * from movies where IMDB_Score >= 6.5;
+
+select runtime from movies where rating = 'G' OR rating = 'PG';
+
+select AVG(runtime), GENRE from movies where IMDB_Score < 7.5 group by GENRE;
+
+UPDATE movies SET rating = 'R' WHERE Title = 'Starship Troopers';
+
+select ID, rating from movies where GENRE = 'Horror' OR  Genre = 'Documentary';
+
+select AVG(IMDB_Score), MAX(IMDB_SCORE), MIN(IMDB_Score), rating from movies group by rating;
+
+select AVG(IMDB_Score), MAX(IMDB_SCORE), MIN(IMDB_Score), rating from movies group by rating HAVING COUNT(*) > 1
+
+Delete from movies where rating = 'R'
